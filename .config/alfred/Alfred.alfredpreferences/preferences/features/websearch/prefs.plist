@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>customSites</key>
+	<dict>
+		<key>7D682F94-0914-4903-90D9-C6A767FC2299</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>r</string>
+			<key>text</key>
+			<string>Open  '{query}' subreddit</string>
+			<key>url</key>
+			<string>https://www.reddit.com/r/{query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>98DE027B-47B9-487D-AABF-82B229A83DE4</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>redit</string>
+			<key>text</key>
+			<string>Search www.reddit.com for '{query}'</string>
+			<key>url</key>
+			<string>https://www.reddit.com/search?q={query}&amp;referrer=sitelinks_searchbox</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

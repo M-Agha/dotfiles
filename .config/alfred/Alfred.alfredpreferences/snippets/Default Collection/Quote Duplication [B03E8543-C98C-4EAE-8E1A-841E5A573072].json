@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "INSERT INTO quotes (data,created_at,updated_at,reference_key,status,client_id,result,selected,tracking_status,tracking_status_comment,bol_document_name,\"customQuoteRequested\",complete_shipment_info,user_id,agent_notes,last_updated_by,bol_uploaded_by,submitted_at,submitted_by,master_shipment_id,edi_request_id)\n\nSELECT data,created_at,updated_at,'3YUKHI6QA',status,client_id,result,selected,tracking_status,tracking_status_comment,bol_document_name,\"customQuoteRequested\",complete_shipment_info,user_id,agent_notes,last_updated_by,bol_uploaded_by,submitted_at,submitted_by,master_shipment_id,edi_request_id from quotes\nWHERE reference_key='ZWO32WE54'; ",
+    "uid" : "B03E8543-C98C-4EAE-8E1A-841E5A573072",
+    "name" : "Quote Duplication",
+    "keyword" : ""
+  }
+}

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string></string>
+	<key>category</key>
+	<string>Tools</string>
+	<key>connections</key>
+	<dict>
+		<key>0CF8C1AD-4418-434E-BBAE-4A6A4AE98B0E</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>FF316160-82F1-4AC1-8D82-72A1F0AC9ED6</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>FF316160-82F1-4AC1-8D82-72A1F0AC9ED6</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A70A4E1E-712E-4575-967A-0AA64960904D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>002F1C1E-C4D3-4A34-8E97-C3605E6BC4B8</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Gunther Groenewege</string>
+	<key>description</key>
+	<string>generate fake data</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Faker v1.0.0 - with suggested commands</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>copied to clipboard</string>
+				<key>title</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>A70A4E1E-712E-4575-967A-0AA64960904D</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>100</integer>
+				<key>script</key>
+				<string>require_once('workflows.php');
+$w = new Workflows();
+
+$locale = $w-&gt;get( 'preferred.locale', 'settings.plist' );
+if (!$locale) {
+	$locale = 'en_EN';
+}
+
+
+require __DIR__.'/vendor/autoload.php';
+
+$query = "{query}";
+
+// use the factory to create a Faker\Generator instance
+$faker = Faker\Factory::create($locale);
+echo $faker-&gt;$query;</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>1</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>FF316160-82F1-4AC1-8D82-72A1F0AC9ED6</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>fixedorder</key>
+				<false/>
+				<key>items</key>
+				<string>[{"title":"Name","arg":"name","subtitle":""},{"title":"Email","arg":"email","subtitle":""},{"title":"Random Digit","arg":"randomDigit","subtitle":"between 0 and 9"},{"title":"Address","arg":"address"},{"title":"Catch Phrase","arg":"catchPhrase"},{"title":"Timezone","arg":"timezone"},{"title":"Century","arg":"century","subtitle":""},{"title":"Time","arg":"time","subtitle":""},{"title":"BS","arg":"bs","subtitle":""},{"title":"Company","arg":"company","subtitle":""},{"title":"Company Suffix","arg":"companySuffix","subtitle":""},{"title":"Job Title","arg":"jobTitle","subtitle":""},{"title":"Phone Number","arg":"phoneNumber","subtitle":""},{"title":"User Agent","arg":"userAgent"},{"title":"City Prefix","arg":"cityPrefix","subtitle":""},{"title":"Secondary Address","arg":"secondaryAddress","subtitle":""},{"title":"State","arg":"state","subtitle":""},{"title":"State Abbr","arg":"stateAbbr","subtitle":""},{"title":"City Suffix","arg":"citySuffix","subtitle":""},{"title":"Street Suffix","arg":"streetSuffix","subtitle":""},{"title":"Building Number","arg":"buildingNumber","subtitle":""},{"title":"City","arg":"city","subtitle":""},{"title":"Street Name","arg":"streetName","subtitle":""},{"title":"Street Address","arg":"streetAddress","subtitle":""},{"title":"Postal Code","arg":"postcode","subtitle":""},{"title":"Country","arg":"country","subtitle":""},{"title":"titleMale","arg":"titleMale","subtitle":""},{"title":"titleFemale","arg":"titleFemale","subtitle":""},{"title":"suffix","arg":"suffix","subtitle":""},{"title":"firstNameMale","arg":"firstNameMale","subtitle":""},{"title":"firstNameFemale","arg":"firstNameFemale","subtitle":""},{"title":"lastName","arg":"lastName","subtitle":""},{"title":"dateTime","arg":"iso8601"}]</string>
+				<key>keyword</key>
+				<string>faker</string>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>subtext</key>
+				<string>name, email, address, word, text, …</string>
+				<key>title</key>
+				<string>Generate fake data</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.listfilter</string>
+			<key>uid</key>
+			<string>0CF8C1AD-4418-434E-BBAE-4A6A4AE98B0E</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>002F1C1E-C4D3-4A34-8E97-C3605E6BC4B8</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>002F1C1E-C4D3-4A34-8E97-C3605E6BC4B8</key>
+		<dict>
+			<key>xpos</key>
+			<integer>700</integer>
+			<key>ypos</key>
+			<real>180</real>
+		</dict>
+		<key>0CF8C1AD-4418-434E-BBAE-4A6A4AE98B0E</key>
+		<dict>
+			<key>xpos</key>
+			<integer>305</integer>
+			<key>ypos</key>
+			<integer>115</integer>
+		</dict>
+		<key>A70A4E1E-712E-4575-967A-0AA64960904D</key>
+		<dict>
+			<key>xpos</key>
+			<integer>700</integer>
+			<key>ypos</key>
+			<real>60</real>
+		</dict>
+		<key>FF316160-82F1-4AC1-8D82-72A1F0AC9ED6</key>
+		<dict>
+			<key>xpos</key>
+			<integer>510</integer>
+			<key>ypos</key>
+			<integer>115</integer>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>http://www.groenewege.com</string>
+</dict>
+</plist>

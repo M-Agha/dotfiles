@@ -1,0 +1,194 @@
+#SKHD STUFF
+
+# if you're having troubles finding key codes for a key just type skhd --observe in a terminal and type a key. Pretty cool! Or just check the wiki.
+
+## HYPER == SHIFT + CMD + ALT + OPTION
+
+## Quickly restart the yabai launch agent
+ctrl + alt + cmd - r : yabai --restart-service
+
+## Close active application
+hyper - backspace : $(yabai -m window $(yabai -m query --windows --window | jq -re ".id") --close)
+
+## rotate tree 90
+hyper - r : yabai -m space --rotate 270
+
+## flip the tree vertically
+# mirror tree y-axis
+hyper - y : yabai -m space --mirror y-axis
+# mirror tree x-axis
+hyper - x : yabai -m space --mirror x-axis
+
+## toggle window fullscreen zoom
+hyper - f : yabai -m window --toggle zoom-fullscreen; sketchybar --trigger window_focus
+
+#Focus window on next display
+ctrl + alt + cmd - j : yabai -m window --focus "$( \
+        (yabai -m query --spaces --display prev || yabai -m query --spaces --display last) \
+            | jq -re '.[] | select(."is-visible" == true)."last-window"')" \
+    || yabai -m display --focus prev \
+    || yabai -m display --focus last
+
+ctrl + alt + cmd - 0x27 : yabai -m window --focus "$( \
+        (yabai -m query --spaces --display next || yabai -m query --spaces --display first) \
+            | jq -re '.[] | select(."is-visible" == true)."first-window"')" \
+    || yabai -m display --focus next \
+    || yabai -m display --focus first
+
+
+#cycle forward
+hyper - j : yabai -m window --focus west \
+    || yabai -m window --focus "$( \
+        (yabai -m query --spaces --display prev || yabai -m query --spaces --display last) \
+            | jq -re '.[] | select(."is-visible" == true)."last-window"')" \
+    || yabai -m display --focus prev \
+    || yabai -m display --focus last
+
+hyper - 0x27 : yabai -m window --focus east \
+    || yabai -m window --focus "$( \
+        (yabai -m query --spaces --display next || yabai -m query --spaces --display first) \
+            | jq -re '.[] | select(."is-visible" == true)."first-window"')" \
+    || yabai -m display --focus next \
+    || yabai -m display --focus first
+
+hyper - k : yabai -m window --focus south || yabai -m window --focus first
+hyper - l : yabai -m window --focus north || yabai -m window --focus last
+#hyper - j : yabai -m window --focus west || yabai -m window --focus last
+#hyper - 0x27 : yabai -m window --focus east || yabai -m window --focus first
+
+hyper - c : yabai -m space --create
+hyper - d : yabai -m space --destroy
+
+ctrl + alt + cmd - 1 : yabai -m space --focus 1 
+ctrl + alt + cmd - 2 : yabai -m space --focus 2 
+ctrl + alt + cmd - 3 : yabai -m space --focus 3 
+ctrl + alt + cmd - 4 : yabai -m space --focus 4 
+ctrl + alt + cmd - 5 : yabai -m space --focus 5 
+ctrl + alt + cmd - 6 : yabai -m space --focus 6 
+ctrl + alt + cmd - 7 : yabai -m space --focus 7 
+ctrl + alt + cmd - 8 : yabai -m space --focus 8
+ctrl + alt + cmd - 9 : yabai -m space --focus 9
+ctrl + alt + cmd - 0 : yabai -m space --focus 10
+
+ctrl + alt + cmd - right : yabai -m space --display last 
+ctrl + alt + cmd - left : yabai -m space --display first
+#SKHD STUFF
+
+# if you're having troubles finding key codes for a key just type skhd --observe in a terminal and type a key. Pretty cool! Or just check the wiki.
+
+## HYPER == SHIFT + CMD + ALT + OPTION
+
+## Quickly restart the yabai launch agent
+ctrl + alt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+
+## Close active application
+hyper - backspace : $(yabai -m window $(yabai -m query --windows --window | jq -re ".id") --close)
+
+## rotate tree 90
+hyper - r : yabai -m space --rotate 270
+
+## flip the tree vertically
+# mirror tree y-axis
+hyper - y : yabai -m space --mirror y-axis
+# mirror tree x-axis
+hyper - x : yabai -m space --mirror x-axis
+
+#Focus window on next display
+ctrl + alt + cmd - j : yabai -m window --focus "$( \
+        (yabai -m query --spaces --display prev || yabai -m query --spaces --display last) \
+            | jq -re '.[] | select(."is-visible" == true)."last-window"')" \
+    || yabai -m display --focus prev \
+    || yabai -m display --focus last
+
+ctrl + alt + cmd - 0x27 : yabai -m window --focus "$( \
+        (yabai -m query --spaces --display next || yabai -m query --spaces --display first) \
+            | jq -re '.[] | select(."is-visible" == true)."first-window"')" \
+    || yabai -m display --focus next \
+    || yabai -m display --focus first
+
+
+#cycle forward
+hyper - j : yabai -m window --focus west \
+    || yabai -m window --focus "$( \
+        (yabai -m query --spaces --display prev || yabai -m query --spaces --display last) \
+            | jq -re '.[] | select(."is-visible" == true)."last-window"')" \
+    || yabai -m display --focus prev \
+    || yabai -m display --focus last
+
+hyper - 0x27 : yabai -m window --focus east \
+    || yabai -m window --focus "$( \
+        (yabai -m query --spaces --display next || yabai -m query --spaces --display first) \
+            | jq -re '.[] | select(."is-visible" == true)."first-window"')" \
+    || yabai -m display --focus next \
+    || yabai -m display --focus first
+
+hyper - k : yabai -m window --focus south || yabai -m window --focus first
+hyper - l : yabai -m window --focus north || yabai -m window --focus last
+#hyper - j : yabai -m window --focus west || yabai -m window --focus last
+#hyper - 0x27 : yabai -m window --focus east || yabai -m window --focus first
+
+hyper - c : yabai -m space --create
+hyper - d : yabai -m space --destroy
+
+ctrl + alt + cmd - 1 : yabai -m space --focus 1 
+ctrl + alt + cmd - 2 : yabai -m space --focus 2 
+ctrl + alt + cmd - 3 : yabai -m space --focus 3 
+ctrl + alt + cmd - 4 : yabai -m space --focus 4 
+ctrl + alt + cmd - 5 : yabai -m space --focus 5 
+ctrl + alt + cmd - 6 : yabai -m space --focus 6 
+ctrl + alt + cmd - 7 : yabai -m space --focus 7 
+ctrl + alt + cmd - 8 : yabai -m space --focus 8
+ctrl + alt + cmd - 9 : yabai -m space --focus 9
+ctrl + alt + cmd - 0 : yabai -m space --focus 10
+
+ctrl + alt + cmd - right : yabai -m space --display last 
+ctrl + alt + cmd - left : yabai -m space --display first
+
+ctrl + alt + cmd - k: yabai -m space --focus prev || yabai -m space --focus last
+
+ctrl + alt + cmd - l: yabai -m space --focus next || yabai -m space --focus first
+
+ctrl + alt + cmd - down: yabai -m window --space prev && sketchybar --trigger windows_on_spaces
+ctrl + alt + cmd - up: yabai -m window --space next && sketchybar --trigger windows_on_spaces
+
+## send window to monitor and follow focus
+#hyper - u : /Users/maagha/CustomScripts/SwitchSpaces/moveWindowLeftAndFollowFocus.sh
+#hyper - p : /Users/maagha/CustomScripts/SwitchSpaces/moveWindowRightAndFollowFocus.sh
+
+#hyper - 0x29 : yabai -m window --space prev
+hyper - 1 : yabai -m window --space 1 && sketchybar --trigger windows_on_spaces
+hyper - 2 : yabai -m window --space 2 && sketchybar --trigger windows_on_spaces
+hyper - 3 : yabai -m window --space 3 && sketchybar --trigger windows_on_spaces
+hyper - 4 : yabai -m window --space 4 && sketchybar --trigger windows_on_spaces
+hyper - 5 : yabai -m window --space 5 && sketchybar --trigger windows_on_spaces
+hyper - 6 : yabai -m window --space 6 && sketchybar --trigger windows_on_spaces
+hyper - 7 : yabai -m window --space 7 && sketchybar --trigger windows_on_spaces
+hyper - 8 : yabai -m window --space 8 && sketchybar --trigger windows_on_spaces
+hyper - 9 : yabai -m window --space 9 && sketchybar --trigger windows_on_spaces
+hyper - 0 : yabai -m window --space 10 && sketchybar --trigger windows_on_spaces
+
+shift + ctrl + alt - j : yabai -m window --warp west && sketchybar --trigger windows_on_spaces
+shift + ctrl + alt - 0x27 : yabai -m window --warp east && sketchybar --trigger windows_on_spaces
+
+
+# Stack
+shift + ctrl + alt - left : yabai -m window west --stack $(yabai -m query --windows --window | jq -r '.id') && sketchybar --trigger window_focus && ~/.config/skhd/refresh.sh
+shift + ctrl + alt - down : yabai -m window south --stack $(yabai -m query --windows --window | jq -r '.id') && sketchybar --trigger window_focus && ~/.config/skhd/refresh.sh
+shift + ctrl + alt - up : yabai -m window north --stack $(yabai -m query --windows --window | jq -r '.id') && sketchybar --trigger window_focus && ~/.config/skhd/refresh.sh
+shift + ctrl + alt - right : yabai -m window east --stack $(yabai -m query --windows --window | jq -r '.id') && sketchybar --trigger window_focus && ~/.config/skhd/refresh.sh
+
+shift + ctrl + alt - k : yabai -m window --focus stack.next || yabai -m window --focus stack.first
+shift + ctrl + alt - l : yabai -m window --focus stack.prev || yabai -m window --focus stack.last
+
+
+shift + ctrl + alt - s : yabai -m space --layout $( [ "$(yabai -m query --spaces --space | jq -re .type)" = 'bsp' ] && echo 'stack' || echo 'bsp' ) && sketchybar --trigger window_focus && ~/.config/skhd/refresh.sh
+shift + ctrl + alt - e : yabai -m window --toggle float && yabai -m window --toggle float; sketchybar --trigger window_focus && ~/.config/skhd/refresh.sh
+
+## swap window
+hyper - left : yabai -m window --swap west || ~/.config/yabai/moveWindowLeftAndFollowFocus.sh
+hyper - right : yabai -m window --swap east || ~/.config/yabai/moveWindowRightAndFollowFocus.sh
+hyper - up : yabai -m window --swap north
+hyper - down : yabai -m window --swap south
+
+## stackline
+shift + alt - b :  hs -c 'stackline.config:toggle("appearance.showIcons")'
