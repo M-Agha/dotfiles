@@ -81,6 +81,7 @@ brew install --cask postman
 brew install --cask datagrip
 brew install --cask notion
 brew install --cask hammerspoon
+brew install --cask karabiner-elements
 brew install tree
 # brew install --cask meetingbar
 # brew install --cask skim
