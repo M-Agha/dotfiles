@@ -81,9 +81,10 @@ plugins=(
  git
  brew
  node
- zsh-syntax-highlighting
  aws
  vscode
+ zsh-syntax-highlighting
+ zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
